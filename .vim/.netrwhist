@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Volumes/ckruse/http/htdocs/phpwock'
+let g:netrw_dirhist_2='/Volumes/ckruse/http/htdocs/phpwock/shared'
+let g:netrw_dirhist_3='/Volumes/ckruse/http/htdocs/phpwock/shared/templates'
+let g:netrw_dirhist_4='/Volumes/ckruse/http/htdocs/phpwock/shared/templates/de_DE.UTF-8'
+let g:netrw_dirhist_5='/Volumes/ckruse/http/htdocs/phpwock/shared/templates/de_DE.UTF-8/spar-mit'
+let g:netrw_dirhist_6='/Volumes/ckruse/http/htdocs/phpwock/shared/templates/de_DE.UTF-8/spar-mit/contacts'
+let g:netrw_dirhist_7='/Users/ckruse/Sites/phpwock'
