@@ -60,4 +60,7 @@
           (lambda () (rng-validate-mode 0))
           )
 
+;; fuck off the splash screen
+(setq inhibit-splash-screen t)
+
 ;; eof
