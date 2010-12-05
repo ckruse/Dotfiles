@@ -10,6 +10,9 @@
 (line-number-mode t)
 (column-number-mode t)
 
+;; highlight current line
+(global-hl-line-mode 1)
+
 ;; remove trailing whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
