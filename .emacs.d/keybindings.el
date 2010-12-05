@@ -9,5 +9,13 @@
 (global-set-key [end] 'end-of-line)
 (global-set-key [C-end] 'end-of-buffer)
 
+;; create shortcut for new tag
+(global-set-key (kbd "C-<") 'wrap-region-or-point-with-html-tag)
+
+;; folding shortcuts
+(global-set-key [(control c) (f)] 'hs-toggle-hiding)
+(global-set-key [(control c)(shift f)] 'hs-hide-all)
+(global-set-key [(control c)(control f)] 'hs-show-all)
+(global-set-key [(control c)(l)] 'hs-hide-level)
 
 ; eof

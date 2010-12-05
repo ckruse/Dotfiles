@@ -9,6 +9,7 @@
   (interactive)
   (let ((one-buffer-one-frame t))
     (new-frame-with-new-scratch)))
+
 (define-key osx-key-mode-map (kbd "A-n") 'my-new-frame-with-new-scratch)
 
 ; eof
