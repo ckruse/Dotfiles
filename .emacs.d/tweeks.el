@@ -6,6 +6,9 @@
 ; show time in status line
 (display-time)
 
+;; show matching marens
+(show-paren-mode 1)
+
 ;; show column and line numbers
 (line-number-mode t)
 (column-number-mode t)
@@ -70,7 +73,7 @@
 (defun goto-match-paren (arg)
   "Go to the matching  if on (){}[], similar to vi style of % "
   (interactive "p")
-  ;; first, check for "outside of bracket" positions expected by forward-sexp, etc.
+;; first, check for "outside of bracket" positions expected by forward-sexp, etc
   (cond ((looking-at "[\[\(\{]") (forward-sexp))
         ((looking-back "[\]\)\}]" 1) (backward-sexp))
         ;; now, try to succeed from inside of a bracket
@@ -79,7 +82,5 @@
         (t nil)
         )
   )
-
-
 
 ;; eof
