@@ -1,8 +1,11 @@
 ;; keybindings
 
 (when (not (featurep 'aquamacs))
-  (global-set-key [M-s-right]              'next-buffer)
-  (global-set-key [M-s-left]               'previous-buffer)
+  (global-set-key [M-s-right] 'cycle-buffer)
+  (global-set-key [M-s-left] 'cycle-buffer-backward)
+  (global-set-key [C-S-s-right] 'cycle-buffer-permissive)
+  (global-set-key [C-S-s-left] 'cycle-buffer-backward-permissive)
+
   (global-set-key [s-left] 'beginning-of-line)
   (global-set-key [s-up] 'beginning-of-buffer)
   (global-set-key [s-right] 'end-of-line)
