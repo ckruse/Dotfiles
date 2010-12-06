@@ -18,4 +18,6 @@
 (global-set-key [(control c)(control f)] 'hs-show-all)
 (global-set-key [(control c)(l)] 'hs-hide-level)
 
+(global-set-key [(control .)] 'goto-match-paren)
+
 ; eof
