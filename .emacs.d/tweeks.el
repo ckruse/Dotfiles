@@ -13,7 +13,8 @@
 ;; highlight current line
 (global-hl-line-mode 1)
 
-;; remove trailing whitespaces
+;; show and remove trailing whitespaces
+(setq-default show-trailing-whitespace t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (setq tab-width 2)

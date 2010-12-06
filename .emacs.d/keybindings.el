@@ -1,9 +1,14 @@
 ;; keybindings
 
-(global-set-key [(control alt left)]        'cycle-buffer-backward)
-(global-set-key [(control alt right)]       'cycle-buffer)
-(global-set-key [(control shift alt left)]  'cycle-buffer-backward-permissive)
-(global-set-key [(control shift alt right)] 'cycle-buffer-permissive)
+(when (not (featurep 'aquamacs))
+  (global-set-key [M-s-right]              'next-buffer)
+  (global-set-key [M-s-left]               'previous-buffer)
+  (global-set-key [s-left] 'beginning-of-line)
+  (global-set-key [s-up] 'beginning-of-buffer)
+  (global-set-key [s-right] 'end-of-line)
+  (global-set-key [s-down] 'end-of-buffer)
+  )
+
 (global-set-key [home] 'beginning-of-line)
 (global-set-key [C-home] 'beginning-of-buffer)
 (global-set-key [end] 'end-of-line)
