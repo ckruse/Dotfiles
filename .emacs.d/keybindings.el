@@ -26,7 +26,7 @@
 (global-set-key [(control c)(control f)] 'hs-show-all)
 (global-set-key [(control c)(l)] 'hs-hide-level)
 
-(global-set-key [(control .)] 'goto-match-paren)
+(global-set-key [s-<] 'goto-match-paren)
 
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
 (define-key my-keys-minor-mode-map (kbd "M-<") 'pop-to-mark-command)
