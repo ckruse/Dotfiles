@@ -50,9 +50,9 @@
 (set-default-coding-systems 'utf-8)
 
 ; show trailing whitespaces
-(setq whitespace-global-modes t)
+;(setq whitespace-global-modes t)
 (setq show-trailing-whitespace t)
-(require 'whitespace)
+(setq-default whitespace-style '(face trailing newline empty newline-mark))
 
 
 ; show speedbar
