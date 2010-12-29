@@ -22,6 +22,7 @@
 (load-library "hideshow")
 
 (add-hook 'c-mode-common-hook   'hs-minor-mode)
+(add-hook 'ruby-mode-hook       'hs-minor-mode)
 
 (require 'whitespace)
 (global-whitespace-mode t)
