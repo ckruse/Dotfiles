@@ -83,4 +83,6 @@
         )
   )
 
+(setq dabbrev-case-fold-search t)
+
 ;; eof

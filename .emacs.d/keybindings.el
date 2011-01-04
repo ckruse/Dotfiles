@@ -43,4 +43,12 @@
 
 (add-hook 'minibuffer-setup-hook 'my-minibuffer-setup-hook)
 
+(global-set-key [(control c) (c)] 'mode-compile)
+(global-set-key [(control c) (k)] 'mode-compile-kill)
+
+
+(global-set-key (kbd "C-<tab>") 'dabbrev-expand)
+(define-key minibuffer-local-map (kbd "C-<tab>") 'dabbrev-expand)
+
+
 ; eof
