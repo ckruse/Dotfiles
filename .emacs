@@ -2,7 +2,7 @@
   (if (window-system)
     (progn
       (set-frame-height (selected-frame) 65)
-      (set-frame-width  (selected-frame) 268)
+      (set-frame-width  (selected-frame) 240)
       (set-frame-position (selected-frame) 120 120)
       )
     )
