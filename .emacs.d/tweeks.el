@@ -85,4 +85,7 @@
 
 (setq dabbrev-case-fold-search t)
 
+(setq visible-bell t)
+
+
 ;; eof
