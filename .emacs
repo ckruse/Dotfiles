@@ -1,3 +1,14 @@
+(when (not (featurep 'aquamacs))
+  (if (window-system)
+    (progn
+      (set-frame-height (selected-frame) 65)
+      (set-frame-width  (selected-frame) 240)
+      (set-frame-position (selected-frame) 120 120)
+      )
+    )
+  )
+
+
 (setq load-path  (cons (expand-file-name "~/.emacs.d/site-lisp/") load-path))
 
 (when

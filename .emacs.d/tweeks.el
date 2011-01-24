@@ -78,7 +78,6 @@
 
 (setq dabbrev-case-fold-search t)
 
-
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
 (setq org-directory "~/org")
@@ -92,5 +91,7 @@
 
 ;(ido-mode t)
 ;(setq ido-enable-flex-matching t)
+
+(setq visible-bell t)
 
 ;; eof
