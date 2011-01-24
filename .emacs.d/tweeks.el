@@ -55,13 +55,6 @@
 (setq-default whitespace-style '(face trailing newline empty newline-mark))
 
 
-; show speedbar
-;(speedbar 1)
-;(speedbar-toggle-show-all-files)
-;(setq-default speedbar-update-flag nil)
-
-(setq js2-bounce-indent-p t)
-
 ;; disable validation
 (add-hook 'nxml-mode-hook
           (lambda () (rng-validate-mode 0))
@@ -84,5 +77,20 @@
   )
 
 (setq dabbrev-case-fold-search t)
+
+
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+
+(setq org-directory "~/org")
+(setq org-mobile-directory "~/Dropbox/MobileOrg/")
+(setq org-agenda-files (quote ("~/Dropbox/org/projects.org")))
+(setq org-mobile-inbox-for-pull "~/Dropbox/org/inbox.org")
+
+(add-hook 'org-mode-hook 'turn-on-font-lock)
+
+(add-to-list 'auto-mode-alist '("mutt-" . mail-mode))
+
+;(ido-mode t)
+;(setq ido-enable-flex-matching t)
 
 ;; eof
