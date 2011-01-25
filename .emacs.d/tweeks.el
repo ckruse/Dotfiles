@@ -94,4 +94,14 @@
 
 (setq visible-bell t)
 
+(defun gtd ()
+   (interactive)
+   (find-file "~/Dropbox/org/projects.org")
+   )
+
+(defun gtd-inbox ()
+  (interactive)
+  (find-file "~/Dropbox/org/inbox.org")
+  )
+
 ;; eof
