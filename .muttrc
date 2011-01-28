@@ -67,7 +67,7 @@ set mbox_type=Maildir
 set folder=$HOME/Mail
 set spoolfile="+/WWWTech/WWWTech"
 
-mailboxes =WWWTech/WWWTech =Termitel/Termitel "=marix-search"
+mailboxes =WWWTech/WWWTech =Termitel/Termitel =Termitel/Termitel.server "=marix-search"
 
 # Mairix search:
 macro index,pager "S" "<shell-escape>mairix " "run a Mairix search"
