@@ -47,8 +47,12 @@
 (global-set-key [(control c) (k)] 'mode-compile-kill)
 
 
-(global-set-key (kbd "C-<tab>") 'dabbrev-expand)
-(define-key minibuffer-local-map (kbd "C-<tab>") 'dabbrev-expand)
+(global-set-key (kbd "C--") 'dabbrev-expand)
+(define-key minibuffer-local-map (kbd "C--") 'dabbrev-expand)
 
+
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
 
 ; eof

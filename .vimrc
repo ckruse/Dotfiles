@@ -8,6 +8,7 @@ if has("gui_running")
   map <M-right> w
   map <C-S-left> <S-b>
   map <C-S-right> <S-w>
+  set guioptions-=T
 else
   map b b
   map f w
@@ -39,7 +40,10 @@ set matchpairs+=<:>
 set showmatch
 
 set mat=5
+
 set incsearch
+set ic scs " ignore case, smart case
+
 set statusline=%F%m%r%h%w\ [%{&ff}\|%{&encoding}\|%Y]\ [A:\%03.3b\|H:\%02.2B]\ [%04l\|%04v,%p%%]\ [%L]
 set laststatus=2
 
@@ -50,7 +54,7 @@ set expandtab
 set nowrap
 
 set foldenable
-set foldmethod=marker
+set foldmethod=syntax
 
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType php set autoindent smartindent
@@ -154,5 +158,7 @@ nnoremap <silent> <Leader>bD :Bclose!<CR>
 
 map <C-x>k :Bclose!<CR><CR>
 
+
+set wildmode=longest,list,full
 
 " eof
