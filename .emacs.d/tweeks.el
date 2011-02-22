@@ -110,6 +110,11 @@
   (find-file "~/Dropbox/org/inbox.org")
   )
 
+(defun passwords ()
+  (interactive)
+  (find-file "~/Dropbox/org/passwords.org.gpg")
+  )
+
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq confirm-kill-emacs 'y-or-n-p)
 
