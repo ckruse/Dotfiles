@@ -1,5 +1,11 @@
 ;; emacs tweeks, since emacs defaults suck
 
+(when (not (featurep 'aquamacs))
+  (setq x-select-enable-clipboard t)
+  (delete-selection-mode t)
+  )
+
+
 ; remove ugly and sucking toolbar
 (tool-bar-mode 0)
 
