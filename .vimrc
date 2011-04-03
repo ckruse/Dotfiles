@@ -16,6 +16,8 @@ else
   map  $
 endif
 
+inoremap ii <Esc>
+
 map <C-c>f za
 map <C-c>F zM
 map <C-c><C-f> zR
