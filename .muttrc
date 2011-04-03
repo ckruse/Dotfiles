@@ -3,24 +3,7 @@
 set mime_forward=yes
 set mime_forward_rest=yes
 
-set sidebar_width=25
-set sidebar_visible=no
-set sidebar_delim='|'
-set sidebar_sort=yes
-
 set editor="/usr/local/bin/emacsclient"
-
-color sidebar_new yellow default
-
-bind index \CP sidebar-prev
-bind index \CN sidebar-next
-bind index o sidebar-open
-bind pager \CP sidebar-prev
-bind pager \CN sidebar-next
-bind pager o sidebar-open
-
-macro index b '<enter-command>toggle sidebar_visible<enter>'
-macro pager b '<enter-command>toggle sidebar_visible<enter>'
 
 # standard
 set from="cjk@wwwtech.de"
