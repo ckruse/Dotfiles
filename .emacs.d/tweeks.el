@@ -9,6 +9,10 @@
 ;; show matching marens
 (show-paren-mode 1)
 
+; delete marked text when typing
+(delete-selection-mode 1)
+
+
 ;; show column and line numbers
 (line-number-mode t)
 (column-number-mode t)
@@ -89,10 +93,13 @@
 
 (add-to-list 'auto-mode-alist '("mutt-" . mail-mode))
 
+(add-to-list 'auto-mode-alist '(".cmake" . cmake-mode))
+(add-to-list 'auto-mode-alist '("CMakeLists.txt" . cmake-mode))
+
 ;(ido-mode t)
 ;(setq ido-enable-flex-matching t)
 
-(setq visible-bell t)
+(setq ring-bell-function 'ignore)
 
 (defun gtd ()
    (interactive)
@@ -111,5 +118,7 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq confirm-kill-emacs 'y-or-n-p)
+
+(put 'narrow-to-region 'disabled nil)
 
 ;; eof

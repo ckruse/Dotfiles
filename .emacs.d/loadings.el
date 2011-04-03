@@ -41,6 +41,9 @@
 (autoload 'mode-compile-kill "mode-compile"
   "Command to kill a compilation launched by `mode-compile'" t)
 
+(autoload 'cmake-mode "cmake-mode"
+  "Mode for cmake files" t)
+
 
 (setq load-path (cons "~/.emacs.d/org/lisp" load-path))
 (require 'org-install)
