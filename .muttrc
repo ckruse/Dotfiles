@@ -61,13 +61,13 @@ macro index,pager "<Esc>t" "<change-folder>=Termitel/Termitel\n" "back to inbox"
 
 folder-hook WWWTech 'set pgp_autosign postponed="+WWWTech/WWWTech.Drafts" record="+WWWTech/WWWTech.Sent Messages"'
 folder-hook WWWTech 'set from="Christian Kruse <cjk@wwwtech.de>" signature="~/.signature-wwwtech"'
-folder-hook WWWTech 'set sendmail="/usr/local/bin/msmtp-enqueue.sh -a WWWTech"'
+folder-hook WWWTech 'set sendmail="~/.mail/msmtp-enqueue.sh -a WWWTech"'
 folder-hook WWWTech 'macro index,pager a "s=WWWTech/WWWTech.Archiv<enter>"'
 folder-hook WWWTech 'my_hdr Reply-To: cjk@wwwtech.de'
 
 folder-hook Termitel 'set postponed="+Termitel/Termitel.Drafts" record="+Termitel/Termitel.Sent Messages"'
 folder-hook Termitel 'set from="Christian Kruse <c.kruse@spar-mit.com>" signature="~/.signature-termitel"'
-folder-hook Termitel 'set sendmail="/usr/local/bin/msmtp-enqueue.sh -a Termitel"'
+folder-hook Termitel 'set sendmail="~/.mail/msmtp-enqueue.sh -a Termitel"'
 folder-hook Termitel 'macro index,pager a "s=Termitel/Termitel.Archiv<enter>"'
 folder-hook Termitel 'my_hdr Reply-To: c.kruse@spar-mit.com'
 

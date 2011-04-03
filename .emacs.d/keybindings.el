@@ -10,6 +10,8 @@
   (global-set-key [s-up] 'beginning-of-buffer)
   (global-set-key [s-right] 'end-of-line)
   (global-set-key [s-down] 'end-of-buffer)
+
+  (global-set-key "\C-a" 'mark-whole-buffer)
   )
 
 (global-set-key [home] 'beginning-of-line)
