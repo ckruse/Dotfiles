@@ -24,8 +24,8 @@
 (add-hook 'c-mode-common-hook   'hs-minor-mode)
 (add-hook 'ruby-mode-hook       'hs-minor-mode)
 
-(require 'whitespace)
-(global-whitespace-mode t)
+;(require 'whitespace)
+;(global-whitespace-mode t)
 
 (when (not (featurep 'aquamacs))
   (autoload 'cycle-buffer "cycle-buffer" "Cycle forward." t)
