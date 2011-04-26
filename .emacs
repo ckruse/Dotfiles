@@ -30,6 +30,7 @@
 (load "~/.emacs.d/tweeks.el")
 
 (load "~/.emacs.d/php.el")
+(load "~/.emacs.d/c_cpp.el")
 (load "~/.emacs.d/erlang.el")
 
 
