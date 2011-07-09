@@ -30,7 +30,7 @@ map <C-x>s :w<CR>
 set list
 set listchars=tab:>-,trail:.
 
-set background=light
+set background=dark
 set nobackup
 set backspace=2
 
