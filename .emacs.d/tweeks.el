@@ -9,6 +9,8 @@
 ; remove ugly and sucking toolbar
 (tool-bar-mode 0)
 
+(menu-bar-mode 0)
+
 ; show time in status line
 (display-time)
 

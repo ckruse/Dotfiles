@@ -1,13 +1,3 @@
-(when (not (featurep 'aquamacs))
-  (if (window-system)
-    (progn
-      (set-frame-height (selected-frame) 65)
-      (set-frame-width  (selected-frame) 240)
-      (set-frame-position (selected-frame) 120 120)
-      )
-    )
-  )
-
 
 (setq load-path  (cons (expand-file-name "~/.emacs.d/site-lisp/") load-path))
 
@@ -31,9 +21,14 @@
 
 (load "~/.emacs.d/php.el")
 (load "~/.emacs.d/c_cpp.el")
-(load "~/.emacs.d/erlang.el")
+
+(setq load-path (cons "/usr/lib/erlang/lib/tools-2.6.6.1/emacs" load-path))
+(setq erlang-root-dir "/usr/lib/erlang")
+(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
+(require 'erlang-start)
 
 
 (server-start)
 
+(load "~/.emacs.d/frames.el")
 ; eof
