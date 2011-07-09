@@ -3,7 +3,7 @@
 set mime_forward=yes
 set mime_forward_rest=yes
 
-set editor="/usr/local/bin/emacsclient"
+set editor="/usr/bin/emacsclient"
 
 # standard
 set from="cjk@wwwtech.de"
@@ -50,7 +50,7 @@ set mbox_type=Maildir
 set folder=$HOME/Mail
 set spoolfile="+/WWWTech/WWWTech"
 
-mailboxes =WWWTech/WWWTech =Termitel/Termitel =Termitel/Termitel.server "=marix-search"
+mailboxes =WWWTech/WWWTech =WWWTech/WWWTech.Lists.swisschaos =WWWTech/WWWTech.Lists.chaostreff =Termitel/Termitel =Termitel/Termitel.server "=marix-search"
 
 # Mairix search:
 macro index,pager "S" "<shell-escape>mairix " "run a Mairix search"
@@ -64,6 +64,10 @@ folder-hook WWWTech 'set from="Christian Kruse <cjk@wwwtech.de>" signature="~/.s
 folder-hook WWWTech 'set sendmail="~/.mail/msmtp-enqueue.sh -a WWWTech"'
 folder-hook WWWTech 'macro index,pager a "s=WWWTech/WWWTech.Archiv<enter>"'
 folder-hook WWWTech 'my_hdr Reply-To: cjk@wwwtech.de'
+
+folder-hook WWWTech/WWWTech.Lists.raif-intern 'set from="Christian Kruse <cjk+raifintern@wwwtech.de>"'
+folder-hook WWWTech/WWWTech.Lists.chaostreff 'set from="Christian Kruse <cjk+chaostreff@wwwtech.de>"'
+folder-hook WWWTech/WWWTech.Lists.swisschaos 'set from="Christian Kruse <cjk+chaostreff@wwwtech.de>"'
 
 folder-hook Termitel 'set postponed="+Termitel/Termitel.Drafts" record="+Termitel/Termitel.Sent Messages"'
 folder-hook Termitel 'set from="Christian Kruse <c.kruse@spar-mit.com>" signature="~/.signature-termitel"'
@@ -115,5 +119,10 @@ set tilde
 
 source ~/.mutt/colors
 source ~/.mutt/gpg
+
+ignore *
+unignore from date subject to cc list-id
+unignore organization organisation x-mailer: x-newsreader: x-mailing-list:
+unignore posted-to:
 
 # eof

@@ -1,106 +1,200 @@
-# Derived from: ataualpa.altervista.org (Il nirvana con mutt)
+## Derived from: ataualpa.altervista.org (Il nirvana con mutt)
+#
+## colori utilizzabili:
+## white
+## brightwhite
+## black
+## green
+## magenta
+## blue
+## cyan
+## yellow
+## brightyellow
+## red
+## brightred
+## default (trasparente)
+## colorx
+## color0 = nero
+## color1 = rosso mattone
+## color2 = verde
+## color3 = nero
+## color4 = blu
+## color5 = viola
+## color6 = verde acquamarina
+## color7 = grigio
+## color8 = non gestito
+## color9 = non gestito
+#
+## COLORI SU SFONDO NERO
+#
+## text colors - general functions
+#color normal     black    	default				# normal text
+#color status     white  	blue				# status bar, last and first row
+#color search     brightblue	red				# search results
+#color message    brightblue  	default				# information messages, last row
+#color error      brightred      default				# error messages, last row
+#color markers    brightred      default				# the + sign at the start of broken lines
+#
+## text colors - message index menu e attachment menu
+#color indicator  brightwhite	blue				# la barra che indica il messaggio attuale
+#color tree       brightred      default				# frecce dei thread
+#color index      blue           default  ~F			# messaggi importanti	! flag visualizzato - comando "F"
+#color index      blue		default  ~N			# messaggi nuovi 	N flag visualizzato - comando "N"
+#color index      magenta        default  ~T			# messaggi tagged	* flag visualizzato - comando "t"
+#color index	 blue		default  ~U			# messaggi non letti
+#color index      cyan           default  ~D			# messaggi cancellati	D flag visualizzato - comandi "d"/"u"
+#
+## (la colorazione per punteggio diventa ridondante se si ordinano i messaggi per score)
+##color index	  magenta	 default '(~n 1-4)'		# messaggi con score 1-4 (marcati automat. per cancellazione)
+##color index	  green		 default '(~n 5-7)'		# messaggi con score 5-7
+##color index	  brightblue	 default '(~n 8-10)'		# messaggi con score 8-10 (flaggati automaticamente)
+##color index	  white		 default '(~n 11-50)'		# messaggi con score 11-50
+##color index	  brightred	 default '(~n 51-100)'		# messaggi con score 51-100
+#
+## colori testo - pager di visualizzazione messaggi
+#color hdrdefault blue           default				# righe degli header (blu/nero: poco visibili)
+##color header     yellow		default "^(from|subject|to):"	# header from: subject: to: (giallo/nero: evidenziati)
+#color bold       green          default				# evidenziazione del grassetto nei body
+#color underline  yellow         default				# evidenziazione del sottolineato nei body
+#color attachment blue           cyan				# righe con nomi file MIME allegati al msg
+#color signature  red            default				# firma
+#color tilde      blue           default				# ~ alla fine dei messaggi
+#color quoted     red		default				# testo quotato 1° livello
+#color quoted1    green		default				# testo quotato 2° livello
+#color quoted2    magenta	default				# testo quotato 3° livello
+#color quoted3    yellow		default
+#color quoted4    red            default
+#color quoted5    red            default
+#color quoted6    red            default
+#color quoted7    red            default
+#color quoted8    red            default
+#color quoted9    red            default
+##color body       brightgreen    default  "((ftp|http|https)://|(file|mailto|news):|www\\.)[-a-zA-Z0-9_.:]\
+##*[a-zA-Z0-9](/[^][{} \t\n\r\"<>()]*[^][{} \t\n\r\"<>().,:!])?/?"
+## Ronald J Kimball's url regexp. mutt-user 04/05/28
+#color body	brightgreen	default	"(https?|ftp|gopher|finger)://([^"'"'"' \t\r\n)>.,!?&]\
+#|[.,!?][^"'"'"' \t\r\n)>.,!?&]|&([^g]|$)|&g([^t]|$)|&gt([^;]|$))+"
+#color body       brightred      default  "[-a-zA-Z_0-9.+]+@[-a-zA-Z_0-9.]+"
+#color body       red            default  "(^| )\\*[-a-zA-Z0-9*]+\\*[,.?]?[ \n]"
+#color body       green          default  "(^| )_[-a-zA-Z0-9_]+_[,.?]?[ \n]"
+#
+## colori testo - pager (URL)
+##color body       cyan           default  "(finger|ftp|http|news|telnet)://[^ >]*"			# generica
+##color body       cyan           default  "<URL:[^ ]*>"							# generica
+##color body       white          blue   "https://[^ >]*"						# https
+##color body       cyan           default  "ftp://[^ ]*"							# ftp
+##color body       green          default  "[[:alnum:]][-+.#_[:alnum:]]*@[-+.[:alnum:]]*[[:alnum:]]"	# http
+##color body       brightred      default  "mailto: *[^ ]+\(\\?subject=[^ ]+\)?"				# mailto
+#
+## colori testo - pager (Percorsi, nomi file e variabili)
+##color body       brightgreen    default  "\\~?\(/[-_.,a-zA-Z0-9{}]+\)+"					# nomi file
+##color body       brightgreen    default  "[a-z]:[-_.a-zA-Z0-9\]+"					# nomi file DOS/WIN
+##color body       brightred      default  "\(/[-_.a-zA-Z0-9]+\)+/"					# percorsi
+##color body       brightmagenta  default  "\\$[a-zA-Z][-_a-zA-Z]+"					# variabili
+#
+## colori testo - pager (Varie)
+##color body       red            default  "^[*] .*:$"						# riga attribution
+#color body	yellow		default  "[*/_]+ *[- &[:alnum:]]+ *[*/_]+"			# testo enfatizzato
+##color body       yellow         default  "[;:8]-?[)/(|PpDO]"					# smilies vari :-)
+##color body       blue           red    "<[Vv]?[Bb]?[Ee]?[Gg]>"					# grin vari <G>
+##color body       green          default  "\( *[-+=#*~_]\){4,}"					# righe di bordo
+##color body       red            white  "[!?]{3,}"						# esclamazioni ripetute
+##color body       brightgreen    default  "[.0-9]+ ?%"						# percentuali
+##color body       white          blue   "[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}"	# indirizzi IP
+#
 
-# colori utilizzabili:
-# white
-# brightwhite
-# black
-# green
-# magenta
-# blue
-# cyan
-# yellow
-# brightyellow
-# red
-# brightred
-# default (trasparente)
-# colorx
-# color0 = nero
-# color1 = rosso mattone
-# color2 = verde
-# color3 = nero
-# color4 = blu
-# color5 = viola
-# color6 = verde acquamarina
-# color7 = grigio
-# color8 = non gestito
-# color9 = non gestito
+color normal       white      color232
+color indicator    color226     default
+color tree         color23      color232 
+color status       color48     color235
+color error        color30      color232
+color message      color50      color232
+color signature    color70      color232
+color attachment   color37      color232
+color search       color100     color232
+color tilde        color130     color232
+color markers      color138     color232
 
-# COLORI SU SFONDO NERO
+#mono bold          reverse
+#color bold         color173 color191
+#mono underline     reverse
+#color underline    color48  color191
 
-# text colors - general functions
-color normal     black    	default				# normal text
-color status     white  	blue				# status bar, last and first row
-color search     brightblue	red				# search results
-color message    brightblue  	default				# information messages, last row
-color error      brightred      default				# error messages, last row
-color markers    brightred      default				# the + sign at the start of broken lines
+color quoted        color107     color232             # quoted text
+color quoted1       color66      color232
+color quoted2       color32      color232
+color quoted3       color30      color232
+color quoted4       color99      color232
+color quoted5       color36      color232
+color quoted6       color114     color232
+color quoted7       color109     color232
+color quoted8       color41      color232
+color quoted9       color138     color232
+# color body          cyan  default  "((ftp|http|https)://|news:)[^ >)\"\t]+"
+# color body          cyan  default  "[-a-z_0-9.+]+@[-a-z_0-9.]+"
+# color body          red   default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]"
+# color body          green default  "(^| )_[-a-z0-9_]+_[,.?]?[\n]"
+# color body          red   default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]"
+# color body          green default  "(^| )_[-a-z0-9_]+_[,.?]?[ \n]"
+color index         color35      color232  .
+color index         color202     default  ~F         # Flagged
+color index         brightwhite     color232  ~N          # New
+color index         white        color234  ~O         
+# color index         brightcolor39     color232  ~N          # New
+# color index         color39     color234  ~O         
+color index         color229     color22  ~T         # Tagged
+color index         color240     default  ~D         # Deleted
 
-# text colors - message index menu e attachment menu
-color indicator  brightwhite	blue				# la barra che indica il messaggio attuale
-color tree       brightred      default				# frecce dei thread
-color index      blue           default  ~F			# messaggi importanti	! flag visualizzato - comando "F"
-color index      blue		default  ~N			# messaggi nuovi 	N flag visualizzato - comando "N"
-color index      magenta        default  ~T			# messaggi tagged	* flag visualizzato - comando "t"
-color index	 blue		default  ~U			# messaggi non letti
-color index      cyan           default  ~D			# messaggi cancellati	D flag visualizzato - comandi "d"/"u"
+######################
 
-# (la colorazione per punteggio diventa ridondante se si ordinano i messaggi per score)
-#color index	  magenta	 default '(~n 1-4)'		# messaggi con score 1-4 (marcati automat. per cancellazione)
-#color index	  green		 default '(~n 5-7)'		# messaggi con score 5-7
-#color index	  brightblue	 default '(~n 8-10)'		# messaggi con score 8-10 (flaggati automaticamente)
-#color index	  white		 default '(~n 11-50)'		# messaggi con score 11-50
-#color index	  brightred	 default '(~n 51-100)'		# messaggi con score 51-100
+#mono body  reverse   '^(subject):.*'
+#color body brightwhite magenta '^(subject):.*'
+#mono body  reverse   '[[:alpha:]][[:alnum:]-]+:'
+#color body black cyan  '[[:alpha:]][[:alnum:]-]+:'
 
-# colori testo - pager di visualizzazione messaggi
-color hdrdefault blue           default				# righe degli header (blu/nero: poco visibili)
-#color header     yellow		default "^(from|subject|to):"	# header from: subject: to: (giallo/nero: evidenziati)
-color bold       green          default				# evidenziazione del grassetto nei body
-color underline  yellow         default				# evidenziazione del sottolineato nei body
-color attachment blue           cyan				# righe con nomi file MIME allegati al msg
-color signature  red            default				# firma
-color tilde      blue           default				# ~ alla fine dei messaggi
-color quoted     red		default				# testo quotato 1° livello
-color quoted1    green		default				# testo quotato 2° livello
-color quoted2    magenta	default				# testo quotato 3° livello
-color quoted3    yellow		default
-color quoted4    red            default
-color quoted5    red            default
-color quoted6    red            default
-color quoted7    red            default
-color quoted8    red            default
-color quoted9    red            default
-#color body       brightgreen    default  "((ftp|http|https)://|(file|mailto|news):|www\\.)[-a-zA-Z0-9_.:]\
-#*[a-zA-Z0-9](/[^][{} \t\n\r\"<>()]*[^][{} \t\n\r\"<>().,:!])?/?"
-# Ronald J Kimball's url regexp. mutt-user 04/05/28
-color body	brightgreen	default	"(https?|ftp|gopher|finger)://([^"'"'"' \t\r\n)>.,!?&]\
-|[.,!?][^"'"'"' \t\r\n)>.,!?&]|&([^g]|$)|&g([^t]|$)|&gt([^;]|$))+"
-color body       brightred      default  "[-a-zA-Z_0-9.+]+@[-a-zA-Z_0-9.]+"
-color body       red            default  "(^| )\\*[-a-zA-Z0-9*]+\\*[,.?]?[ \n]"
-color body       green          default  "(^| )_[-a-zA-Z0-9_]+_[,.?]?[ \n]"
+######################
+# header
 
-# colori testo - pager (URL)
-#color body       cyan           default  "(finger|ftp|http|news|telnet)://[^ >]*"			# generica
-#color body       cyan           default  "<URL:[^ ]*>"							# generica
-#color body       white          blue   "https://[^ >]*"						# https
-#color body       cyan           default  "ftp://[^ ]*"							# ftp
-#color body       green          default  "[[:alnum:]][-+.#_[:alnum:]]*@[-+.[:alnum:]]*[[:alnum:]]"	# http
-#color body       brightred      default  "mailto: *[^ ]+\(\\?subject=[^ ]+\)?"				# mailto
+color hdrdefault color30    color233 
+color header  color132    color233    '^date:'
+color header  color153    color233    '^(to|cc|bcc):'
+color header  color120    color233    '^from:'
+color header  color178    color233    '^subject:'
+color header    color31     color233    '^user-agent:'
+color header  color29     color233    '^reply-to:'
 
-# colori testo - pager (Percorsi, nomi file e variabili)
-#color body       brightgreen    default  "\\~?\(/[-_.,a-zA-Z0-9{}]+\)+"					# nomi file
-#color body       brightgreen    default  "[a-z]:[-_.a-zA-Z0-9\]+"					# nomi file DOS/WIN
-#color body       brightred      default  "\(/[-_.a-zA-Z0-9]+\)+/"					# percorsi
-#color body       brightmagenta  default  "\\$[a-zA-Z][-_a-zA-Z]+"					# variabili
+#color header magenta default '^(status|lines|date|received|sender|references):'
+#color header magenta default '^(pr|mime|x-|user|return|content-)[^:]*:'
+#color header brightyellow default '^content-type:'
+#color header magenta default '^content-type: *text/plain'
+# color header  brightgreen default '^list-[^:]*:'
+#mono  header    bold             '^(subject):.*$'
+#color header brightcyan default  '^(disposition)'
+#color header green default '^(mail-)?followup'
+#color header white default '^reply'
+#color header brightwhite default '^(resent)'
+# color header  brightwhite default '^from:'
 
-# colori testo - pager (Varie)
-#color body       red            default  "^[*] .*:$"						# riga attribution
-color body	yellow		default  "[*/_]+ *[- &[:alnum:]]+ *[*/_]+"			# testo enfatizzato
-#color body       yellow         default  "[;:8]-?[)/(|PpDO]"					# smilies vari :-)
-#color body       blue           red    "<[Vv]?[Bb]?[Ee]?[Gg]>"					# grin vari <G>
-#color body       green          default  "\( *[-+=#*~_]\){4,}"					# righe di bordo
-#color body       red            white  "[!?]{3,}"						# esclamazioni ripetute
-#color body       brightgreen    default  "[.0-9]+ ?%"						# percentuali
-#color body       white          blue   "[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}"	# indirizzi IP
+######################
+# spam
 
+### html
+#color index blue default '~b "<(img|a |html|body)"'
+
+### china spam
+#color index brightred black '~h "^(content-type:| +).*charset=\"?(big5|gb2312|SHIFT.JIS|euc.kr|windows.125[^2]|iso.[0-9]+.jp|koi[^       ;"])"'
+
+### sex
+#color index brightyellow black "~b '(p$E+n$I+$S|sex|er$E+ct$I+$O+n|p$O+rn$O+|v$I+$A+gr|c$I+$A+$L+$I+$S)'"
+
+### misc
+#color index cyan black '~b "(w$A+tch|r$E+p$L+$I+c$A|d$I+p$L+$O+m|d$E+gr$E+e|pr$I+ce|s$A+les|\\\$[0-9]+)"'
+
+### drug
+#color index white black "~b '(ph$A+rm$A+cy|m$E+d$I+c$A+t$I+$O+n|pr$E+scr$I+pt$I+$O+n|d$I+$S+c$O+$U+nt|p$I+$L+$S|v$A+$L+$I+$U+m|v$I+c$O+d$I+n)'"
+
+
+#mono index bold '~h "^content-type: *(multipart/(mixed|signed|encrypted)|application/)"'
+#color index  green black '~h "^content-type: *multipart/(signed|encrypted)"'
 
 # vim: syntax=muttrc
