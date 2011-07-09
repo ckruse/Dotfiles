@@ -11,7 +11,7 @@
   (global-set-key [s-right] 'end-of-line)
   (global-set-key [s-down] 'end-of-buffer)
 
-  (global-set-key [s-l] 'goto-line)
+  (global-set-key [(super l)] 'goto-line)
 
   (global-set-key "\C-a" 'mark-whole-buffer)
   )
