@@ -1,5 +1,8 @@
 ;; emacs tweeks, since emacs defaults suck
 
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "chromium")
+
 (when (not (featurep 'aquamacs))
   (setq x-select-enable-clipboard t)
   (delete-selection-mode t)
