@@ -4,9 +4,6 @@
 ; load a better perl mode
 (autoload 'perl-mode "cperl-mode" "better mode for editing Perl programs" t)
 
-(autoload 'js2-mode "js2" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
 ; snippets
 (require 'yasnippet-bundle)
 (defun wrap-region-or-point-with-html-tag (start end)
