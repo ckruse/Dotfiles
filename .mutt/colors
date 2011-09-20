@@ -103,8 +103,8 @@
 ##color body       white          blue   "[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}"	# indirizzi IP
 #
 
-color normal       white      color232
-color indicator    color226     default
+#color normal       white      color232
+color indicator    color226     color102 #default
 color tree         color23      color232 
 color status       color48     color235
 color error        color30      color232
@@ -136,7 +136,7 @@ color quoted9       color138     color232
 # color body          green default  "(^| )_[-a-z0-9_]+_[,.?]?[\n]"
 # color body          red   default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]"
 # color body          green default  "(^| )_[-a-z0-9_]+_[,.?]?[ \n]"
-color index         color35      color232  .
+color index         color35      default .
 color index         color202     default  ~F         # Flagged
 color index         brightwhite     color232  ~N          # New
 color index         white        color234  ~O         
