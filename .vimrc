@@ -1,5 +1,6 @@
 syntax enable
 
+set ai
 set nohlsearch
 
 if has("gui_running")
