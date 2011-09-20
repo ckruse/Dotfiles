@@ -9,6 +9,8 @@
   )
 
 
+(setq js-indent-level 2)
+
 ; remove ugly and sucking toolbar
 (tool-bar-mode 0)
 
@@ -131,5 +133,25 @@
 (setq confirm-kill-emacs 'y-or-n-p)
 
 (put 'narrow-to-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
+(defun align-repeat-after (start end regexp)
+  "Repeat alignment with respect to
+   the given regular expression."
+  (interactive "r\nsAlign regexp: ")
+  (align-regexp start end
+                (concat "\\(\\s-*\\)" regexp) 1 1 t
+                )
+  )
+
+(defun align-repeat (start end regexp)
+  "Repeat alignment with respect to
+   the given regular expression."
+  (interactive "r\nsAlign regexp: ")
+  (align-regexp start end
+                (concat regexp "\\(\\s-*\\)") 1 1 t
+                )
+  )
+
 
 ;; eof
