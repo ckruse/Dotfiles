@@ -10,11 +10,13 @@ if has("gui_running")
   map <C-S-left> <S-b>
   map <C-S-right> <S-w>
   set guioptions-=T
+  set background=light
 else
   map b b
   map f w
   map  0
   map  $
+  set background=dark
 endif
 
 inoremap ii <Esc>
@@ -31,7 +33,6 @@ map <C-x>s :w<CR>
 set list
 set listchars=tab:>-,trail:.
 
-set background=dark
 set nobackup
 set backspace=2
 
