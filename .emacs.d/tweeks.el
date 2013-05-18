@@ -1,19 +1,44 @@
-;; emacs tweeks, since emacs defaults suck
+;; (custom-set-faces
+;;  '(text-mode-default ((((type ns))
+;;                        (:inherit autoface-default
+;;                                  :stipple nil
+;;                                  :strike-through nil
+;;                                  :underline nil
+;;                                  :slant normal
+;;                                  :weight normal
+;;                                  :height 130
+;;                                  :width normal
+;;                                  :family "Source Code Pro")))
+;;                      )
+;;  )
+
+(setq exec-path (append exec-path '("/usr/local/bin")))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(mumamo-background-chunk-major ((t nil)))
+ '(mumamo-background-chunk-submode1 ((t nil)))
+ )
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values (quote ((encoding . utf-8)))))
 
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "chromium")
 
-(when (not (featurep 'aquamacs))
-  (setq x-select-enable-clipboard t)
-  (delete-selection-mode t)
-  )
 
-
-(setq js-indent-level 2)
+(setq x-select-enable-clipboard t)
+(delete-selection-mode t)
 
 ; remove ugly and sucking toolbar
 (tool-bar-mode 0)
-
 (menu-bar-mode 0)
 
 ; show time in status line
@@ -22,16 +47,9 @@
 ;; show matching marens
 (show-paren-mode 1)
 
-; delete marked text when typing
-(delete-selection-mode 1)
-
-
 ;; show column and line numbers
 (line-number-mode t)
 (column-number-mode t)
-
-;; highlight current line
-(global-hl-line-mode 1)
 
 ;; show and remove trailing whitespaces
 (setq-default show-trailing-whitespace t)
@@ -39,9 +57,6 @@
 
 (setq tab-width 2)
 (setq-default tab-width 2)
-(setq c-basic-offset 2)
-(setq-default c-basic-offset 2)
-
 (setq indent-tabs-mode nil)
 (setq-default indent-tabs-mode nil)
 
@@ -49,17 +64,21 @@
 
 ;disable backup
 (setq backup-inhibited t)
+(setq-default backup-inhibited t)
 ;disable auto save
 (setq auto-save-default nil)
-
+(setq-default auto-save-default nil)
+(setq auto-save-list-file-prefix nil)
+(setq-default auto-save-list-file-prefix nil)
 
 (cond (
-  (fboundp 'global-font-lock-mode)
-  ;; Turn on font-lock in all modes that support it
-  (global-font-lock-mode t)
-  ;; Maximum colors
-  (setq font-lock-maximum-decoration t))
-)
+       (fboundp 'global-font-lock-mode)
+       ;; Turn on font-lock in all modes that support it
+       (global-font-lock-mode t)
+       ;; Maximum colors
+       (setq font-lock-maximum-decoration t)
+       )
+      )
 
 
 ; we wanna use utf8 normally
@@ -67,62 +86,18 @@
 (set-default-coding-systems 'utf-8)
 
 ; show trailing whitespaces
-;(setq whitespace-global-modes t)
 (setq show-trailing-whitespace t)
 (setq-default whitespace-style '(face trailing newline empty newline-mark))
-
-
-;; disable validation
-(add-hook 'nxml-mode-hook
-          (lambda () (rng-validate-mode 0))
-          )
 
 ;; fuck off the splash screen
 (setq inhibit-splash-screen t)
 
-(defun goto-match-paren (arg)
-  "Go to the matching  if on (){}[], similar to vi style of % "
-  (interactive "p")
-;; first, check for "outside of bracket" positions expected by forward-sexp, etc
-  (cond ((looking-at "[\[\(\{]") (forward-sexp))
-        ((looking-back "[\]\)\}]" 1) (backward-sexp))
-        ;; now, try to succeed from inside of a bracket
-        ((looking-at "[\]\)\}]") (forward-char) (backward-sexp))
-        ((looking-back "[\[\(\{]" 1) (backward-char) (forward-sexp))
-        (t nil)
-        )
-  )
-
 (setq dabbrev-case-fold-search t)
 
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-
-(setq org-directory "~/Dropbox/org")
-(setq org-mobile-directory "~/Dropbox/MobileOrg/")
-(setq org-agenda-files (quote ("~/Dropbox/org/projects.org" "~/Dropbox/org/inbox.org")))
-(setq org-mobile-inbox-for-pull "~/Dropbox/org/inbox.org")
-
-(add-hook 'org-mode-hook 'turn-on-font-lock)
 
 (add-to-list 'auto-mode-alist '("mutt-" . mail-mode))
 
-(add-to-list 'auto-mode-alist '(".cmake" . cmake-mode))
-(add-to-list 'auto-mode-alist '("CMakeLists.txt" . cmake-mode))
-
-;(ido-mode t)
-;(setq ido-enable-flex-matching t)
-
 (setq ring-bell-function 'ignore)
-
-(defun gtd ()
-   (interactive)
-   (find-file "~/Dropbox/org/projects.org")
-   )
-
-(defun gtd-inbox ()
-  (interactive)
-  (find-file "~/Dropbox/org/inbox.org")
-  )
 
 (defun passwords ()
   (interactive)
@@ -153,5 +128,40 @@
                 )
   )
 
+
+(toggle-scroll-bar -1)
+
+(ido-mode)
+(setq ido-enable-flex-matching t)
+
+(cond
+ ((featurep 'ns)
+  (set-default-font "Source Code Pro-11")
+  (global-set-key [kp-delete] 'delete-char)
+  )
+ (t
+  (set-default-font "Source Code Pro-09")
+  )
+ )
+
+(defun djcb-find-file-as-root ()
+  "Like `ido-find-file, but automatically edit the file with
+root-privileges (using tramp/sudo), if the file is not writable by
+user."
+  (interactive)
+  (let ((file (ido-read-file-name "Edit as root: ")))
+    (unless (file-writable-p file)
+      (setq file (concat "/sudo:root@localhost:" file)))
+    (find-file file)))
+
+;; or some other keybinding...
+(global-set-key (kbd "C-x F") 'djcb-find-file-as-root)
+
+(defun gtd ()
+  (interactive)
+  (find-file "~/Dropbox/org/inbox.org")
+  )
+
+(global-set-key (kbd "s--") 'gtd)
 
 ;; eof

@@ -9,4 +9,7 @@
 (add-hook 'c-mode-hook 'ck-init-c)
 (add-hook 'c++-mode-hook 'ck-init-c)
 
-; eof
+(setq c-basic-offset 2)
+(setq-default c-basic-offset 2)
+
+;; eof

@@ -1,17 +1,24 @@
 # sidebar
 
+set sidebar_width=35
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CF sidebar-open
+macro index,pager \CB "<enter-command>toggle sidebar_visible<enter>"
+
+
 set mime_forward=yes
 set mime_forward_rest=yes
 
-set editor="/usr/bin/emacsclient"
+set editor="/usr/local/bin/subl -w"
 
 # standard
-set from="cjk@wwwtech.de"
+set from="cjk@defunct.ch"
 set realname="Christian Kruse"
 
 
 # multiple accounts
-alternates "(ckruse@gmail\.com)|(cjk@wwwtech\.de)|(ckruse@wwwtech\.de)|(c\.kruse@mwbenson\.de)|(c\.kruse@termitel\.de)|(c\.kruse@spar-mit\.com)"
+alternates "(cjk@wwwtech\.de)|(cjk@defunct\.ch)|(ckruse@wwwtech\.de)|(c\.kruse@mwbenson\.(de|ch))|(c\.kruse@termitel\.de)|(c\.kruse@sourceflow\.(ch|de))"
 
 set use_from
 set reverse_name
@@ -44,36 +51,32 @@ set edit_headers
 set date_format = "%d/%m/%y %H:%M"
 
 set alias_file=~/.mutt/aliases
-set query_command="lbdbq %s"
+set query_command="mu cfind --muhome=~/.mu-sent-index --format=mutt-ab '%s'"
 
 set mbox_type=Maildir
 set folder=$HOME/Mail
-set spoolfile="+/WWWTech/WWWTech"
+set spoolfile="+/Defunct/INBOX"
 
-mailboxes =WWWTech/WWWTech =WWWTech/WWWTech.Lists.swisschaos =WWWTech/WWWTech.Lists.chaostreff =Termitel/Termitel =Termitel/Termitel.server =Termitel/Termitel.System.Cron =Termitel/Termitel.System.Nagios =Sparmit/Sparmit "=marix-search"
+source ~/.mutt/mailboxes
 
 # Mairix search:
-macro index,pager "S" "<shell-escape>mairix " "run a Mairix search"
-macro index,pager "<Esc>s" "<change-folder-readonly>=mairix-search\n" "switch to mairix results folder"
-macro index,pager "<Esc>w" "<change-folder>=WWWTech/WWWTech\n" "back to inbox"
-macro index,pager "<Esc>t" "<change-folder>=Termitel/Termitel\n" "back to inbox"
+macro index "S" "<enter-command>unset wait_key<enter><shell-escape>read -p'mu query: ' x; \
+      mu find --clearlinks --linksdir ~/Mail/mu-search --format links \$x<enter>\
+      <change-folder-readonly>~/Mail/mu-search\n" "mu find"
+macro index "<Esc>s" "<change-folder-readonly>~/Mail/mu-search\n" "display mu-find results"
+macro index,pager "<Esc>w" "<change-folder>=Defunct/INBOX\n" "back to inbox"
+macro index,pager "<Esc>t" "<change-folder>=Termitel/INBOX\n" "back to inbox"
 
 
-folder-hook WWWTech 'set pgp_autosign postponed="+WWWTech/WWWTech.Drafts" record="+WWWTech/WWWTech.Sent Messages"'
-folder-hook WWWTech 'set from="Christian Kruse <cjk@wwwtech.de>" signature="~/.signature-wwwtech"'
-folder-hook WWWTech 'set sendmail="~/.mail/msmtp-enqueue.sh -a WWWTech"'
-folder-hook WWWTech 'macro index,pager a "s=WWWTech/WWWTech.Archiv<enter>"'
-folder-hook WWWTech 'my_hdr Reply-To: cjk@wwwtech.de'
+folder-hook Defunct 'set pgp_autosign postponed="+Defunct/Drafts" record="+Defunct/Sent Messages"'
+folder-hook Defunct 'set from="Christian Kruse <cjk@defunct.ch>" signature="~/.signature-defunct"'
+folder-hook Defunct 'set sendmail="~/.msmtp-enqueue.sh -a Defunct"'
+folder-hook Defunct 'macro index,pager a "s=Defunct/Archiv<enter>"'
 
-folder-hook WWWTech/WWWTech.Lists.raif-intern 'set from="Christian Kruse <cjk+raifintern@wwwtech.de>"'
-folder-hook WWWTech/WWWTech.Lists.chaostreff 'set from="Christian Kruse <cjk+chaostreff@wwwtech.de>"'
-folder-hook WWWTech/WWWTech.Lists.swisschaos 'set from="Christian Kruse <cjk+chaostreff@wwwtech.de>"'
-
-folder-hook Termitel 'set postponed="+Termitel/Termitel.Drafts" record="+Termitel/Termitel.Sent Messages"'
-folder-hook Termitel 'set from="Christian Kruse <c.kruse@spar-mit.com>" signature="~/.signature-termitel"'
-folder-hook Termitel 'set sendmail="~/.mail/msmtp-enqueue.sh -a Termitel"'
-folder-hook Termitel 'macro index,pager a "s=Termitel/Termitel.Archiv<enter>"'
-folder-hook Termitel 'my_hdr Reply-To: c.kruse@spar-mit.com'
+folder-hook Termitel 'set postponed="+Termitel/Drafts" record="+Termitel/Sent Messages"'
+folder-hook Termitel 'set from="Christian Kruse <c.kruse@sourceflow.ch>" signature="~/.signature-termitel"'
+folder-hook Termitel 'set sendmail="~/.msmtp-enqueue.sh -a Termitel"'
+folder-hook Termitel 'macro index,pager a "s=Termitel/Archiv<enter>"'
 
 set folder_format = "[%2C] %t %N %f" # %> Last modified: %-13d"
 set index_format='%4C %?X?A& ? %Z %d %-20.20F %?M?-->%3M&(%4l)? %s'
