@@ -1,0 +1,86 @@
+((("steps:" .
+   [1 0 0 0 0 0])
+  ("parts" .
+   [1 0 0 0 0])
+  ("alert" .
+   [2 0 0 0 0])
+  ("inArray" .
+   [1 0 0 0 0 0 0])
+  ("beam" .
+   [3 0 0 0])
+  ("global-set-key" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("obj_with_clear" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("paintPrimitive" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("canvas" .
+   [1 0 0 0 0 0])
+  ("adNotam" .
+   [0 0 0 0 1 0 0])
+  ("this" .
+   [1 0 0 0])
+  ("true" .
+   [1 0 0 0])
+  ("setq-default" .
+   [0 0 0 0 0 0 0 0 1 0 0 0])
+  ("nil" .
+   [2 0 0])
+  ("setq" .
+   [1 0 0 0])
+  ("drillings" .
+   [1 0 0 0 0 0 0 0 0])
+  ("config" .
+   [3 0 0 0 0 0])
+  ("if" .
+   [3 0])
+  ("p" .
+   [1])
+  ("light_power_supply_accessoire_id" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1])
+  ("light_power_supply_id" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("Articles::LightPowerSupplyAccessoireLightPowerSupply" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("each" .
+   [1 0 0 0])
+  ("pwa" .
+   [3 0 0])
+  ("light_power_supply_accessoires" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  (":clearance_e" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  (":clearance_a" .
+   [1 0 0 0 0 0 0 0 0 0 0 4])
+  (":clearance_" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("save" .
+   [1 0 0 0])
+  ("all" .
+   [1 0 0])
+  ("light_power_supply_accessoire" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("pw" .
+   [4 0])
+  ("depth:" .
+   [1 0 0 0 0 0])
+  ("height:" .
+   [1 0 0 0 0 0 0])
+  ("width:" .
+   [1 0 0 0 0 0])
+  ("accessoire_type" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("name:" .
+   [1 0 0 0 0])
+  ("art_no_production" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("create" .
+   [2 0 0 0 0 0])
+  ("Articles::LightPowerSupplyAccessoire" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("art_no" .
+   [1 0 0 0 0 1])
+  ("def" .
+   [2 0 0])
+  ("height" .
+   [2 0 0 0 0 0])))
